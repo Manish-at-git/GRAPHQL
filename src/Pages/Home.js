@@ -8,8 +8,6 @@ function Home() {
     variables: { name: citySearched },
   });
 
-  if (error) return <h1> Error found</h1>;
-
   return (
     <div className="home">
       <h1>Search For Weather</h1>
@@ -20,9 +18,9 @@ function Home() {
           setCitySearched(event.target.value);
         }}
       />
-      <button onClick={() => getWeather()}> Search</button>
+      <button onClick={getWeather}> Search</button>
       <div className="weather">
-        {data && (
+        {data?.getCityByName && (
           <>
             <h1> {data.getCityByName.name} </h1>
             <h1>
